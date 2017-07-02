@@ -1,0 +1,20 @@
+# security
+.env
+
+# build output
+dist
+.next
+
+# dependencies
+node_modules
+
+# logs
+npm-debug.log
+
+# coverage
+.nyc_output
+coverage
+
+.DS_Store
+
+*.sketch

@@ -1,0 +1,48 @@
+{
+  "name": "www",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "nodemon -w server/index.js server/index.js",
+    "build": "next build",
+    "prestart": "NODE_ENV=production next build",
+    "start": "NODE_ENV=production node server/index.js"
+  },
+  "main": "server/index.js",
+  "dependencies": {
+    "autoprefixer": "^7.1.1",
+    "axios": "^0.16.2",
+    "babel-plugin-module-resolver": "^2.7.1",
+    "babel-plugin-root-import": "^5.1.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-wrap-in-js": "^1.1.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "body-parser": "^1.17.1",
+    "bulma": "^0.4.2",
+    "compression": "^1.6.2",
+    "core-decorators": "^0.17.0",
+    "cors": "^2.8.3",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.2",
+    "express-sslify": "^1.2.0",
+    "glob": "^7.1.2",
+    "helmet": "^3.6.1",
+    "hpp": "^0.2.2",
+    "mobx": "^2.7.0",
+    "mobx-react": "^4.0.4",
+    "mobx-react-devtools": "^4.2.11",
+    "mongoose": "^4.9.4",
+    "next": "beta",
+    "node-sass": "^4.5.3",
+    "postcss-csso": "^2.0.0",
+    "postcss-loader": "^2.0.6",
+    "raw-loader": "^0.5.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "sass-loader": "^6.0.6"
+  },
+  "engines": {
+    "node": ">=6.9.2"
+  },
+  "author": "Fabian Schultz",
+  "license": "MIT"
+}
