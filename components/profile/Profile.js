@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import Head from 'next/head';
-import s from './Profile.scss';
+import s from './Profile.css';
 
 @inject('store')
 @observer
@@ -16,17 +16,11 @@ class Profile extends Component {
   render() {
     const { user } = this.props.store.user;
 
-    return (
-      <div>
-        {user
-          ? <h1>
-              {user.name}
-            </h1>
-          : <div />}
-
-        <style jsx>{s}</style>
-      </div>
-    );
+    return user
+      ? <h1 className={s.heading}>
+          {user.name}
+        </h1>
+      : <div />;
   }
 }
 

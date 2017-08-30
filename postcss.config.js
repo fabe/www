@@ -1,3 +1,8 @@
 module.exports = {
-  plugins: [require('autoprefixer'), require('postcss-csso')],
+  plugins: [
+    require('postcss-import')({ path: 'styles' }),
+    require('autoprefixer'),
+    require('postcss-simple-vars'),
+    require('postcss-csso'),
+  ],
 };

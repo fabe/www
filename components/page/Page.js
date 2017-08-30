@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
+import s from './Page.css';
 
 @inject('store')
 @observer

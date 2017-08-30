@@ -13,23 +13,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['babel-loader', 'raw-loader', 'postcss-loader'],
-      },
-      {
-        test: /\.s(a|c)ss$/,
         use: [
           'babel-loader',
-          'raw-loader',
+          'styled-modules/loader',
+          'css-loader?modules',
           'postcss-loader',
-          {
-            loader: 'sass-loader',
-            options: {
-              includePaths: ['styles', 'node_modules']
-                .map(d => path.join(__dirname, d))
-                .map(g => glob.sync(g))
-                .reduce((a, c) => a.concat(c), []),
-            },
-          },
         ],
       }
     );

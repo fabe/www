@@ -4,6 +4,8 @@
     "stage-0"
   ],
   "plugins": [
-    "transform-decorators-legacy", "babel-plugin-root-import"
+    "transform-decorators-legacy", "babel-plugin-root-import", ["styled-modules/babel", {
+      "pattern": "\\.css$"
+    }]
   ]
 }
