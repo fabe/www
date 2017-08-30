@@ -13,6 +13,8 @@ A personal, opinionated boilerplate for world wide web applications.
 - ✨ Prettier as a code style.
 - 🐜 GZIP by `compression`.
 - 🔒 `hpp` & `helmet` for security.
+- ☔️ Offline support using [Workbox](https://workboxjs.org/) (huge thanks to [codebusking](https://github.com/codebusking/next-hnpwa-guide-kit)).
+- 😎 Preact support using `--preact` (huge thanks to [codebusking](https://github.com/codebusking/next-hnpwa-guide-kit)).
 
 ## Development
 

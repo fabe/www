@@ -14,7 +14,7 @@ const mongoose = require('mongoose');
 const { User } = require('./schema');
 const serve = (subpath, cache) =>
   express.static(path.resolve(__dirname, subpath), {
-    maxAge: 0,
+    maxAge: cache && !dev ? 1000 * 60 * 60 * 24 * 30 : 0,
   });
 
 // Set up some globals.

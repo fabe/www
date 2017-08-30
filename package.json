@@ -5,8 +5,7 @@
     "dev": "nodemon -w server/index.js server/index.js",
     "build": "next build",
     "prestart": "NODE_ENV=production chmod -R u+x node_modules/next/dist/bin && next build && node generate-sw.js",
-    "start": "NODE_ENV=production node server/index.js",
-    "build:sw": "node generate-sw.js"
+    "start": "NODE_ENV=production node server/index.js"
   },
   "main": "server/index.js",
   "dependencies": {
@@ -40,6 +39,8 @@
     "postcss-import": "^10.0.0",
     "postcss-loader": "^2.0.6",
     "postcss-simple-vars": "^4.1.0",
+    "preact": "^8.2.5",
+    "preact-compat": "^3.17.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "styled-modules": "^0.2.2"
