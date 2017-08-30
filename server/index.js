@@ -11,7 +11,6 @@ const next = require('next');
 const mobxReact = require('mobx-react');
 const mongoose = require('mongoose');
 const { User } = require('./schema');
-const enforce = require('express-sslify');
 
 // Set up some globals.
 const { NODE_ENV, PORT, DB_HOST, DB_USER, DB_PASS } = process.env;
@@ -52,9 +51,6 @@ app.prepare().then(() => {
 
   // Use compression.
   server.use(compression());
-
-  // Enforce HTTPS on production.
-  if (!dev) server.use(enforce.HTTPS({ trustProtoHeader: true }));
 
   // (Example) Route to get user.
   server.get('/api/user/:id', (req, res) => {

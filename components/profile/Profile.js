@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
-import Head from 'next/head';
 import s from './Profile.css';
 
+@inject('store')
+@observer
 class Profile extends Component {
   componentDidMount() {
-    console.log(this.props);
     // When navigated on the client, fetch by action.
     if (!this.props.user.user) {
       this.props.user.fetchUser(this.props.id);

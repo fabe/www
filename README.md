@@ -9,10 +9,10 @@ A personal, opinionated boilerplate for world wide web applications.
 - 🌍 Next.js + Express server (SSR).
 - 🛢 MongoDB & Mongoose as a database.
 - 🌐 Axios as the http client.
-- 💅 SASS via `styled-jsx`.
+- 💅 CSS Modules & PostCSS.
 - ✨ Prettier as a code style.
 - 🐜 GZIP by `compression`.
-- 🔒 `hpp` & `helmet` for security. Also forces `https`.
+- 🔒 `hpp` & `helmet` for security.
 
 ## Development
 
