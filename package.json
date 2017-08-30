@@ -4,8 +4,9 @@
   "scripts": {
     "dev": "nodemon -w server/index.js server/index.js",
     "build": "next build",
-    "prestart": "NODE_ENV=production next build",
-    "start": "NODE_ENV=production node server/index.js"
+    "prestart": "NODE_ENV=production chmod -R u+x node_modules/next/dist/bin && next build && node generate-sw.js",
+    "start": "NODE_ENV=production node server/index.js",
+    "build:sw": "node generate-sw.js"
   },
   "main": "server/index.js",
   "dependencies": {
@@ -24,8 +25,10 @@
     "dotenv": "^4.0.0",
     "express": "^4.15.2",
     "glob": "^7.1.2",
+    "globby": "^6.1.0",
     "helmet": "^3.6.1",
     "hpp": "^0.2.2",
+    "load-json-file": "^3.0.0",
     "mobx": "^2.7.0",
     "mobx-react": "^4.0.4",
     "mobx-react-devtools": "^4.2.11",

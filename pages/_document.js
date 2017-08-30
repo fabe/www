@@ -1,6 +1,7 @@
 import Document, { Head, Main, NextScript } from 'next/document';
 import config from '~/config';
 import flush from 'styled-modules/server';
+import ServiceWorker from './service-worker';
 
 export default class extends Document {
   static getInitialProps({ renderPage }) {
@@ -21,17 +22,18 @@ export default class extends Document {
             name="viewport"
             content="initial-scale=1.0, width=device-width"
           />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
           <link
             rel="icon"
             type="image/png"
-            href="/static/favicon-32x32.png"
+            href="/static/icons/favicon-32x32.png"
             sizes="32x32"
           />
           <link
             rel="icon"
             type="image/png"
-            href="/static/favicon-16x16.png"
+            href="/static/icons/favicon-16x16.png"
             sizes="16x16"
           />
 
@@ -62,10 +64,13 @@ export default class extends Document {
             name="twitter:summary_large_image"
             content={`${config.app.publicUrl}/static/facebook.jpg`}
           />
+
+          <link rel="manifest" href="/manifest.json" />
         </Head>
         <body>
           <Main />
           <NextScript />
+          <ServiceWorker />
         </body>
       </html>
     );

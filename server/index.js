@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -11,6 +12,10 @@ const next = require('next');
 const mobxReact = require('mobx-react');
 const mongoose = require('mongoose');
 const { User } = require('./schema');
+const serve = (subpath, cache) =>
+  express.static(path.resolve(__dirname, subpath), {
+    maxAge: 0,
+  });
 
 // Set up some globals.
 const { NODE_ENV, PORT, DB_HOST, DB_USER, DB_PASS } = process.env;
@@ -51,6 +56,13 @@ app.prepare().then(() => {
 
   // Use compression.
   server.use(compression());
+
+  // Static files
+  server.use('/static', serve('./static', true));
+
+  // Offline support
+  server.use('/service-worker.js', serve('../.next/service-worker.js', true));
+  server.use('/manifest.json', serve('../static/manifest.json', true));
 
   // (Example) Route to get user.
   server.get('/api/user/:id', (req, res) => {
