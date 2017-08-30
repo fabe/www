@@ -3,18 +3,17 @@ import { inject, observer } from 'mobx-react';
 import Head from 'next/head';
 import s from './Profile.css';
 
-@inject('store')
-@observer
 class Profile extends Component {
   componentDidMount() {
+    console.log(this.props);
     // When navigated on the client, fetch by action.
-    if (!this.props.store.user.user) {
-      this.props.store.user.fetchUser(this.props.id);
+    if (!this.props.user.user) {
+      this.props.user.fetchUser(this.props.id);
     }
   }
 
   render() {
-    const { user } = this.props.store.user;
+    const { user } = this.props.user;
 
     return user
       ? <h1 className={s.heading}>

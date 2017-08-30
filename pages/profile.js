@@ -21,12 +21,14 @@ export default class extends Component {
   }
 
   render() {
-    const { user } = this.store.user;
+    const { user } = this.store;
 
     return (
       <Provider store={this.store}>
         <Page>
-          {typeof user === 'number' ? <Error statusCode={user} /> : <Profile />}
+          {typeof user === 'number'
+            ? <Error statusCode={user} />
+            : <Profile user={user} />}
         </Page>
       </Provider>
     );

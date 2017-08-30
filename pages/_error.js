@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
 import Head from 'next/head';
+import { Provider, observer } from 'mobx-react';
+import { initStore } from '~/stores';
 import config from '~/config';
 import Page from '~/components/page';
 
 export default class Error extends Component {
-  static getInitialProps({ res, jsonPageRes }) {
+  static getInitialProps({ req, res, jsonPageRes }) {
     const statusCode = res
       ? res.statusCode
       : jsonPageRes ? jsonPageRes.status : null;
-    return { statusCode };
+    const isServer = !!req;
+    const store = initStore(isServer);
+    return { statusCode, isServer };
+  }
+
+  constructor(props) {
+    super(props);
+    this.store = initStore(props.isServer);
   }
 
   renderErrorMessage(statusCode) {
@@ -28,20 +37,22 @@ export default class Error extends Component {
     const { statusCode } = this.props;
 
     return (
-      <Page>
-        <Head>
-          <title>
-            {config.app.name} — {statusCode}
-          </title>
-        </Head>
+      <Provider store={this.store}>
+        <Page>
+          <Head>
+            <title>
+              {config.app.name} — {statusCode}
+            </title>
+          </Head>
 
-        {statusCode
-          ? <h1>
-              {statusCode}
-            </h1>
-          : <h1>Oh no!</h1>}
-        {this.renderErrorMessage(statusCode)}
-      </Page>
+          {statusCode
+            ? <h1>
+                {statusCode}
+              </h1>
+            : <h1>Oh no!</h1>}
+          {this.renderErrorMessage(statusCode)}
+        </Page>
+      </Provider>
     );
   }
 }
